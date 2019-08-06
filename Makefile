@@ -1,16 +1,29 @@
 # We convert all the vector source images into svg
 # .vsdx -> .contrib.svg
 # .pdf  -> .svg
-VSDXs=$(shell find . -type f -name '*.vsdx')
-SVGC=$(patsubst %.vsdx,%.svg,$(VSDXs))
+DISTDIR=_dist
 
-# Make generated files from python scripts (Temporarly RST)
-contrib=$(RST) $(SVGC)
+VSDXs=$(shell find * -type f -name '*.vsdx')
+SVGS=$(patsubst %.vsdx,$(DISTDIR)/%.svg,$(VSDXs))
 
-# Make a rule to build the PDFs
-contrib: $(contrib)
+all: $(SVGS)
 
-%.svg:%.vsdx
-	@printf "\e[36mvisio2svg\e[0m $< \e[2m--> $@\e[0m\n"
-	chmod +x ./scripts/visio2svg.sh # Because Git sometime removes the x flag
-	./scripts/visio2svg.sh $<
+$(DISTDIR)/%.svg: %.vsdx | $(DISTDIR)
+	mkdir -p $(dir $@)
+	./visio2svg.sh $< $@
+
+$(DISTDIR):
+	mkdir $@
+
+COMMIT!=git rev-parse HEAD
+
+publish:
+	git checkout dist
+	find . ! -name '_dist' -and ! -name '.git' -exec rm -rf {} +
+	mv _dist/* .
+	rmdir _dist
+	git add .
+	git commit -m "Sync dist branch with " $(COMMIT)
+	git checkout master
+
+.PHONY: all publish
