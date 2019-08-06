@@ -19,10 +19,9 @@ COMMIT!=git rev-parse HEAD
 
 publish:
 	git checkout dist
-	find . ! -name '_dist' -and ! -name '.git' -exec rm -rf {} +
 	mv _dist/* .
 	rmdir _dist
-	git add .
+	find * -iname '*.svg' | xargs git add
 	git commit -m "Sync dist branch with " $(COMMIT)
 	git checkout master
 
