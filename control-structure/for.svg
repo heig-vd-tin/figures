@@ -680,7 +680,7 @@
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="7.08661" cy="321.81" width="40" height="17.6036"/>
 			<path d="M7.09 307.28 L7.09 330.82" class="st10"/>
-			<rect v:rectContext="textBkgnd" x="0.260595" y="317.01" width="13.6522" height="9.59985" class="st12"/>
+			<rect v:rectContext="textBkgnd" x="0.260595" y="317.01" width="13.6522" height="9.59985" class="st13"/>
 			<text x="0.26" y="324.21" class="st2" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>true</text>		</g>
 		<g id="shape95-208" v:mID="95" v:groupContext="shape" v:layerMember="1" transform="translate(220.88,-142.158)">
 			<title>Lien dynamique.95</title>
@@ -692,7 +692,7 @@
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="21.9223" cy="335.522" width="40" height="17.6036"/>
 			<path d="M-1.77 307.28 L23.03 307.28 L23.03 458.23 L-6.89 458.23" class="st10"/>
-			<rect v:rectContext="textBkgnd" x="14.3129" y="330.722" width="15.2185" height="9.59985" class="st13"/>
+			<rect v:rectContext="textBkgnd" x="14.3129" y="330.722" width="15.2185" height="9.59985" class="st12"/>
 			<text x="14.31" y="337.92" class="st2" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>false</text>		</g>
 		<g id="shape97-220" v:mID="97" v:groupContext="shape" transform="translate(65.0368,-22.7057)">
 			<title>Feuille.97</title>
