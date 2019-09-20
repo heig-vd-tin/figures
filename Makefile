@@ -1,10 +1,10 @@
 # We convert all the vector source images into svg
 # .vsdx -> .contrib.svg
 # .pdf  -> .svg
-DISTDIR=_dist
+DISTDIR=dist
 
-VSDXs=$(shell find * -type f -name '*.vsdx')
-SVGS=$(patsubst %.vsdx,$(DISTDIR)/%.svg,$(VSDXs))
+VSDXs=$(shell find src/* -type f -name '*.vsdx')
+SVGS=$(patsubst src/%.vsdx,$(DISTDIR)/%.svg,$(VSDXs))
 
 all: $(SVGS)
 
@@ -19,8 +19,8 @@ COMMIT!=git rev-parse HEAD
 
 publish:
 	git checkout dist
-	mv _dist/* .
-	rmdir _dist
+	mv $(DISTDIR)/* .
+	rmdir $(DISTDIR)
 	find * -iname '*.svg' | xargs git add
 	git commit -m "Sync dist branch with " $(COMMIT)
 	git checkout master
